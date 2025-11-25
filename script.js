@@ -108,12 +108,11 @@ function handleCheck(arr){
         const check=arr[i]==selectWrd[i]
         if(check){
             res.push("c")
-        }else{
-            if(selectWrd.includes(arr[i]))
-                res.push("e")
-            else
-                res.push("w")
-        }
+        }else if(selectWrd.includes(arr[i]))
+            res.push("e")
+        else
+            res.push("w")
+        
     }
     return res
 
