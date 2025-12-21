@@ -106,9 +106,7 @@ html,body{
     background: #ff3f3f;
     transform: translateY(-2px);
 }
-.display{
-    display: block;
-}
+
 
 .hintBox {
     max-width: 280px;                  /* not too wide */
@@ -130,4 +128,60 @@ html,body{
 .hintBox:hover {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
+}
+
+
+.gameLoseWindow {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 25px;
+    width: 280px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    text-align: center;
+    z-index: 10;
+}
+
+.gameLoseWindow h3 {
+    margin-top: 15px;
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.gameLoseWindow button {
+    margin-top: 20px;
+    padding: 10px 18px;
+    font-size: 1.1rem;
+    border: none;
+    background: #ff5a5a;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.gameLoseWindow button:hover {
+    background: #ff3f3f;
+    transform: translateY(-2px);
+}
+.display{
+    display: block;
+}
+.hintImgContainer img {
+  width: 50px;
+  height: 50px;
+}
+.hintImgContainer {
+    position: fixed;
+    top: 10px;
+    left: 0px;
+    background-color: hsl(216, 100%, 75%);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
 }

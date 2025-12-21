@@ -4,6 +4,7 @@ let wrdLen=5;
 let row=1;
 let selectWrd="";
 let won=false;
+let log=false;
 let userGuess={
     1:{
         guessWrd:[],
@@ -46,6 +47,14 @@ document.addEventListener("keydown",(e)=>{
             middleMan.classList.add("display")
             winWindow.classList.add("display")
             return won=true
+        }else {
+            console.log(row)
+            if(row==6){
+                middleMan.classList.add("display")
+                loseWindow.classList.add("display")
+                return lose=true
+            }
+
         }
         userGuess[row].guessWrd=input.split("")
         userGuess[row].guessWrdRes=res
@@ -55,6 +64,7 @@ document.addEventListener("keydown",(e)=>{
     }
 })
 function hanleNewGame(){
+    lose=false;
     won=false;
     input="";
     wrdLen=5;
@@ -83,6 +93,7 @@ function hanleNewGame(){
     selectRanddomWord(dataG)
     middleMan.classList.remove("display")
     winWindow.classList.remove("display")
+    loseWindow.classList.remove("display")
 
     allSmallbox.forEach(box=>{
         if(box.classList.length>1){
@@ -95,12 +106,16 @@ function hanleNewGame(){
 }
 const middleMan=document.querySelector(".middleman")
 const winWindow=document.querySelector(".gameWonWindow")
-const newGame=document.getElementById("newGameaBtn")
+const loseWindow=document.querySelector(".gameLoseWindow")
+const newGame=document.querySelectorAll(".newGameaBtn")
 const hintBox=document.querySelector(".hintBox")
 
-newGame.addEventListener("click",()=>{
+newGame.forEach(btn=>{
+    btn.addEventListener("click",()=>{
     hanleNewGame()
+    })
 })
+
 
 function handleCheck(arr){
     let res=[]
@@ -108,8 +123,9 @@ function handleCheck(arr){
         const check=arr[i]==selectWrd[i]
         if(check){
             res.push("c")
-        }else if(selectWrd.includes(arr[i]))
+        }else if(selectWrd.includes(arr[i])){
             res.push("e")
+        }
         else
             res.push("w")
         
